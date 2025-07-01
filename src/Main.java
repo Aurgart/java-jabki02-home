@@ -236,12 +236,23 @@ public class Main {
         // break чисто для примера.
         String descript;
         switch (mark) {
-            case 1: descript ="полный провал"; break;
-            case 2: descript ="провал поменьше"; break;
-            case 3: descript ="чето слабо";break;
-            case 4: descript ="не мой уровень";break;
-            case 5: descript ="Проходной бал";break;
-            default: return "Многовато";
+            case 1:
+                descript ="полный провал";
+                break;
+            case 2:
+                descript ="провал поменьше";
+                break;
+            case 3:
+                descript ="чето слабо";
+                break;
+            case 4:
+                descript ="не мой уровень";
+                break;
+            case 5:
+                descript ="Проходной бал";
+                break;
+            default:
+                return "Многовато";
         }
         return "Чтобы вы не выбрали,  оценка отлично";
     }
