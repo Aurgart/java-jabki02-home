@@ -1,15 +1,15 @@
 public class Main {
     public static void main(String[] args) {
         // вычислим площадь круга
-        System.out.println(circle_square(0,0,10));
+        System.out.println(circleSquare(0, 0, 10));
         // цельсий в фаренгейты
-        System.out.println(celsius_to_faren(27.2));
+        System.out.println(celsiusToFaren(27.2));
         // а что длиннее?
-        System.out.println(compare_len("War"));
+        System.out.println(compareLen("War"));
         // а февраль длинный?
-        System.out.println(is_leap_year(2028));
+        System.out.println(isLeapYear(2028));
         // а не жирдяй ли я ?
-        System.out.println(IMT_Calc(94.2,1.94));
+        System.out.println(IMTCalc(94.2, 1.94));
 
         // задание 6
         // таблица истинности для оператора &&
@@ -34,54 +34,56 @@ public class Main {
         System.out.println("\u263a");
 
         // Тернарный задание 1
-        System.out.println(check_num_tern(5));
+        System.out.println(checkNumTern(5));
         // Тернарный задание 2
-        System.out.println(check_num_3_5(12));
+        System.out.println(checkNum35(12));
         // for задание 4
         for (int i = 10; i>0; i--){
-            System.out.print(i+" "+(i == 1 ? "\n":""));
+            System.out.print(i + " " + (i == 1 ? "\n":""));
         }
         // for задание 5
         int col = 0;
         for (int j = 1; j <= 50; j++){
             col = col+(j%2 ==0 ?1 : 0);
         }
-        System.out.println("Кол-во четных чисел с 1 до 50: "+col);
+        System.out.println("Кол-во четных чисел с 1 до 50: " + col);
         // while Задание 1
         int j = 100;
-        while (j%7 != 0){
+        while (j % 7 != 0){
             j++;
         }
-        System.out.println("Ближайшее число к 100 делится на 7: "+j);
+        System.out.println("Ближайшее число к 100 делится на 7: " + j);
 
         // break & continue Задание 1
         for (int i = 1 ;i <=20; i++){
-            if (i%3 ==0){continue;}
-            System.out.print(i+" "+(i == 20 ? "\n":""));
+            if (i % 3 ==0){
+                continue;
+            }
+            System.out.print(i + " " + (i == 20 ? "\n":""));
         }
 
         // Задание for 1 тест
-        int[] even_numbers = {1,2,3,5,6,7,12,15};
-        System.out.println(even_sum(even_numbers));
+        int[] evenNumbers = {1, 2, 3, 5, 6, 7, 12, 15};
+        System.out.println(evenSum(evenNumbers));
 
     }
     /**
      *  Расчет площади круга задание 1.
+     * Добавил тут проверку на if как 5 задание из if-else
      * @param radius - радиус круга
      * @param diameter - диаметр
      * @param  circle_len - длина окружности
-     * Добавил тут проверку на if как 5 задание из if-else
      * */
-    static double circle_square(double radius, double diameter, double circle_len){
+    static double circleSquare(double radius, double diameter, double circle_len){
         double p =  3.14159;
         // Расчет зависит от переданных параметров
-        if(radius > 0 ){  // по радиусу
+        if (radius > 0 ) {  // по радиусу
             return p * (radius* radius);
-        }else if(diameter >0 ){ // по диаметру
+        } else if (diameter > 0) { // по диаметру
             return (p * ( diameter * diameter))/4;
-        } else if(circle_len > 0) { // по длине окружности
-            return ( circle_len* circle_len )/ (4 * p);
-        }else{
+        } else if (circle_len > 0) { // по длине окружности
+            return (circle_len * circle_len)/ (4 * p);
+        } else {
             System.out.println("Не корректно заданы параметры");
             return 0;
         }
@@ -94,14 +96,14 @@ public class Main {
      * Цельсий в Фаренгейт задание 2
      * @param temp - температура в цельсиях
      */
-    static double celsius_to_faren(double temp){
+    static double celsiusToFaren(double temp){
         return (temp * 9)/5+32;
     }
     /**
      * Сравнить длину слов задание 3
      * @param word  - слова которое сравниваем с hello
      */
-    static boolean compare_len(String word){
+    static boolean compareLen(String word){
         return word.length() == "Hello".length();
     }
 
@@ -109,8 +111,8 @@ public class Main {
      * Проверка високосный ли год задание 4
      * @param year - год в виде числа yyyy
      */
-    static boolean is_leap_year(int year){
-        return (year/4)%4 == 0;
+    static boolean isLeapYear(int year){
+        return (year / 4) % 4 == 0;
     }
 
     /**
@@ -118,8 +120,8 @@ public class Main {
      * @param weigth - вес
      * @param height - высота в метрах
      */
-    static double IMT_Calc( double weigth, double height){
-        return weigth/(height * height);
+    static double IMTCalc(double weigth, double height){
+        return weigth / (height * height);
     }
 
     /**
@@ -128,14 +130,14 @@ public class Main {
      * @param  is_tern - 0/1 - 0 через if/ 1 через тернарный оператор
      * @return - четное/нечетное
      */
-    static String is_even_number(int num, int is_tern){
+    static String isEvenNumber(int num, int is_tern){
         if (is_tern == 1){
-            return num%2== 0 ?"Четное":"Нечетное";
+            return num % 2== 0 ?"Четное":"Нечетное";
         }
         // заодно сравнить что проще написать.
-        if (num%2 ==0 ){
+        if (num % 2 ==0 ){
             return "четное";
-        }else {
+        } else {
             return "нечетное";
         }
     }
@@ -146,12 +148,12 @@ public class Main {
      * @param num2
      * @return возвращает какое число больше, или они равны
      */
-    static String compare_nums(int num1, int num2){
-        if(num1 > num2){
+    static String compareNums(int num1, int num2){
+        if (num1 > num2) {
             return "Первое больше";
-        }else if (num1 < num2){
+        } else if (num1 < num2){
             return "Второе больше";
-        }else{
+        } else {
             return "Равны";
         }
     }
@@ -161,13 +163,13 @@ public class Main {
      * @param num
      * @return положительное/отрицательное/ноль(вообще это тоже положительное, но то такое)
      */
-    static String check_num(int num){
-        if(num == 0 ){
+    static String checkNum(int num){
+        if (num == 0 ) {
             return "Равно нулю";
-        }else{
+        } else {
             if (num > 0){
                 return "Положительное";
-            }else {
+            } else {
                 return "Отрицательное";
             }
         }
@@ -178,10 +180,10 @@ public class Main {
      * @param age
      * @return может купить пивка, или пусть валит
      */
-    static String check_age(int age){
+    static String checkAge(int age){
         if (age >= 18){
             return "Доступ разрешен";
-        }else{
+        } else {
             return "Мелкий засранец";
         }
     }
@@ -192,8 +194,8 @@ public class Main {
      * @param num
      * @return
      */
-    static String check_num_tern(int num){
-        return (num <0 ? "отрицательное": (num>0 ?"положительное":"нулевое"));
+    static String checkNumTern(int num){
+        return (num < 0 ? "отрицательное": (num > 0 ?"положительное":"нулевое"));
     }
 
     /**
@@ -201,7 +203,9 @@ public class Main {
      * @param num
      * @return
      */
-    static String check_num_3_5(int num){ return (num%5 ==0 && num%3 ==0 ) ? "Кратно":"Не кратно";}
+    static String checkNum35(int num){
+        return (num % 5 == 0 && num % 3 ==0 ) ? "Кратно":"Не кратно";
+    }
 
     //switch (не Нинтендо( )
 
@@ -210,7 +214,7 @@ public class Main {
      * @param day
      * @return - название дня недели
      */
-    static String day_of_week(int day){
+    static String dayOfWeek(int day){
         // можно без break так как return сразу заканчивает выполнение метода
         switch (day) {
             case 1: return "Понедельник";
@@ -228,7 +232,7 @@ public class Main {
      * @param mark
      * @return - оценка работы
      */
-    static String result_of_work(int mark){
+    static String resultOfWork(int mark){
         // break чисто для примера.
         String descript;
         switch (mark) {
@@ -248,9 +252,9 @@ public class Main {
      * @param numbers - массив int
      * @return - сумма четных чисел
      */
-    static int even_sum(int[] numbers){
+    static int evenSum(int[] numbers){
         int sum = 0;
-        for(int i=0;i < numbers.length; i++){
+        for (int i = 0; i < numbers.length; i++) {
             sum = sum +(numbers[i]%2 ==0? numbers[i]: 0);
         }
         return sum;
@@ -260,7 +264,7 @@ public class Main {
      * @param numbers - массив чисел
      * @return - максимальное
      */
-    static int find_max(int[] numbers){
+    static int findMax(int[] numbers){
         int max  = numbers[0];
         for (int i = 1; i < numbers.length; i++){
             max = max > numbers[i] ? max : numbers[i];
@@ -271,7 +275,7 @@ public class Main {
      * таблица перемножения числа Задание for 3
      * @param num - число целое
      */
-    static void mult_table(int num){
+    static void multTable(int num){
         for (int i = 1; i <= 10; i++){
             System.out.println(num+" * "+i+ " = "+ num*i);
         }
@@ -298,11 +302,11 @@ public class Main {
      * @param num - целое число
      * @return возвращает простое или нет
      */
-    static boolean check_if_num_is_simple(int num){
+    static boolean checkIfNumI0sSimple(int num){
         int i = 2;
         if (num <= 1){return true;}
-        while (i < num*num){
-            if (num%i == 0){
+        while (i < num * num) {
+            if (num % i == 0) {
                 return false;
             }
         }
@@ -316,11 +320,13 @@ public class Main {
      * @param arr
      * @return
      */
-    static int summ_no_neg(int[] arr){
-        int sum=0;
+    static int summNoNeg(int[] arr){
+        int sum = 0;
         int i = 0;
-        while(i< arr.length){
-            if(arr[i] < 0){break;}
+        while (i < arr.length) {
+            if (arr[i] < 0) {
+                break;
+            }
             sum = sum + arr[i];
             i++;
         }
@@ -333,12 +339,15 @@ public class Main {
      * @param arr
      * @return
      */
-    static int sum_100(int[] arr){
-        int sum = 0 ;
+    static int sum100(int[] arr){
+        int sum = 0;
         int j = 0;
-        while(j< arr.length){
-            if(sum + arr[j] > 100){ break;}
-            else {sum = sum + arr[j];}
+        while(j < arr.length){
+            if (sum + arr[j] > 100) {
+                break;
+            } else {
+                sum = sum + arr[j];
+            }
         }
         return sum;
     }
